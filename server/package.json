@@ -1,0 +1,54 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --detectOpenHandles --forceExit",
+    "test:coverage": "jest --coverage --detectOpenHandles --forceExit"
+  },
+  "jest": {
+    "setupFiles": ["<rootDir>/jest.setup.js"],
+    "moduleNameMapper": {
+      "^puppeteer$": "<rootDir>/_test_/mocks/puppeteer.js"
+    },
+    "collectCoverageFrom": [
+      "controllers/**/*.js",
+      "helpers/**/*.js",
+      "middlewares/**/*.js",
+      "models/user.js",
+      "routes/**/*.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 90,
+        "functions": 90,
+        "lines": 90,
+        "statements": 90
+      }
+    },
+    "testTimeout": 15000
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@google/genai": "^2.16.0",
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "ejs": "^6.0.1",
+    "express": "^5.2.1",
+    "google-auth-library": "^11.0.2",
+    "jsonwebtoken": "^9.0.3",
+    "pg": "^8.23.0",
+    "puppeteer": "^25.6.0",
+    "sequelize": "^6.37.8",
+    "sequelize-cli": "^6.6.5"
+  },
+  "devDependencies": {
+    "jest": "^30.4.2",
+    "supertest": "^7.2.2"
+  }
+}
